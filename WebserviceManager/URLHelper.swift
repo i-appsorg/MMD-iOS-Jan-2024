@@ -36,6 +36,7 @@ enum URLName : String {
     case iDonatePrivacyUrl = "PrivacyUrl"
     case iDonateHelpUrl = "HelpUrl"
     case iDonateAboutUrl = "AboutUrl"
+    case docsBaseUrl = "DocsBaseUrl"
 
 }
 
@@ -124,7 +125,7 @@ final class URLHelper : NSObject {
         return URLFetcher.sharedFetcher.urlDictionary[URLName.MDServerURL.rawValue]! +  URLFetcher.sharedFetcher.urlDictionary[URLName.iDonateTransactionList.rawValue]!
     }()
     static var getDocsBaseurl : String = {
-        let baseUrl = URL(string: URLFetcher.sharedFetcher.urlDictionary[URLName.MDServerURL.rawValue]!)
+        let baseUrl = URL(string: URLFetcher.sharedFetcher.urlDictionary[URLName.docsBaseUrl.rawValue]!)
         let url = String(format: "https://%@/", (baseUrl?.host!)!)
         return url
     }()
